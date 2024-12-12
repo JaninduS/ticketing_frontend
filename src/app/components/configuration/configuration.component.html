@@ -1,0 +1,64 @@
+<p>configuration works!</p>
+<div class="configuration-form">
+    <h2>System Configuration</h2>
+    <form (ngSubmit)="updateConfiguration()">
+      <label for="totalTickets">Total Tickets:</label>
+      <input
+        type="number"
+        id="totalTickets"
+        [(ngModel)]="configuration.totalTickets"
+        name="totalTickets"
+        required
+      />
+  
+      <label for="maxTicketCapacity">Max Ticket Capacity:</label>
+      <input
+        type="number"
+        id="maxTicketCapacity"
+        [(ngModel)]="configuration.maxTicketCapacity"
+        name="maxTicketCapacity"
+        required
+      />
+  
+      <label for="ticketReleaseRate">Ticket Release Rate:</label>
+      <input
+        type="number"
+        id="ticketReleaseRate"
+        [(ngModel)]="ticketReleaseRate"
+        name="ticketReleaseRate"
+        required
+      />
+  
+      <label for="customerRetrievalRate">Customer Retrieval Rate:</label>
+      <input
+        type="number"
+        id="customerRetrievalRate"
+        [(ngModel)]="customerRetrievalRate"
+        name="customerRetrievalRate"
+        required
+      />
+
+      <label for="vendorCount">Vendor Count:</label>
+    <input
+      type="number"
+      id="vendorCount"
+      [(ngModel)]="configuration.vendorCount"
+      name="vendorCount"
+      required
+    />
+
+    <label for="customerCount">Customer Count:</label>
+    <input
+      type="number"
+      id="customerCount"
+      [(ngModel)]="configuration.customerCount"
+      name="customerCount"
+      required
+    />
+  
+      <button type="submit">Update Configuration</button>
+    </form>
+    <button [routerLink]="'/tickets'">Continue</button>
+
+  </div>
+  

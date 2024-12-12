@@ -1,0 +1,36 @@
+.tickets-page {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+  
+    .status {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      text-align: left; /* Align to the left */
+    }
+  
+    .controls button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  
+    .logs {
+      text-align: left; /* Align to the left */
+      margin-top: 20px;
+    }
+  
+    .logs ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    .logs li {
+      background: #f4f4f4;
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 4px;
+    }
+  }
+  
