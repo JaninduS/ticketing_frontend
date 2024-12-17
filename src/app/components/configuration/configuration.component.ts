@@ -3,15 +3,14 @@ import { ConfigurationService } from '../../services/configuration.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
-
 @Component({
   selector: 'app-configuration',
   standalone: true,
   imports: [FormsModule, RouterLink],
   templateUrl: './configuration.component.html',
-  styleUrl: './configuration.component.css'
+  styleUrl: './configuration.component.css',
 })
-export class ConfigurationComponent implements OnInit{
+export class ConfigurationComponent implements OnInit {
   configuration: any = {
     totalTickets: 0,
     maxTicketCapacity: 0,
@@ -24,10 +23,10 @@ export class ConfigurationComponent implements OnInit{
   constructor(private configService: ConfigurationService) {}
 
   ngOnInit(): void {
-      this.configService.getConfiguration().subscribe({
-        next: (data) => (this.configuration = data),
-        error: (err) => console.error('Failed to load configuration', err),
-      });
+    this.configService.getConfiguration().subscribe({
+      next: (data) => (this.configuration = data),
+      error: (err) => console.error('Failed to load configuration', err),
+    });
   }
 
   get ticketReleaseRate(): number {

@@ -1,11 +1,5 @@
 <div class="tickets-page">
   <h2>Ticketing System</h2>
-  <div class="status">
-    <h3>Ticket Status</h3>
-    <ul>
-      <li *ngFor="let log of ticketStatusLogs">{{ log }}</li>
-    </ul>
-  </div>
   <div class="controls">
     <button (click)="startSimulation()" [disabled]="isSimulationRunning">
       Start Simulation
@@ -14,10 +8,18 @@
       Stop Simulation
     </button>
   </div>
-  <div class="logs">
-    <h3>Activity Logs</h3>
-    <ul>
-      <li *ngFor="let log of logMessages">{{ log }}</li>
-    </ul>
+  <div class="logs_display">
+    <div class="logs">
+      <h3>Activity Logs</h3>
+      <ul>
+        <li *ngFor="let log of logMessages">{{ log }}</li>
+      </ul>
+    </div>
+    <div class="status">
+      <h3>Ticket Status</h3>
+      <ul>
+        <li *ngFor="let log of ticketStatusLogs">{{ log }}</li>
+      </ul>
+    </div>
   </div>
 </div>

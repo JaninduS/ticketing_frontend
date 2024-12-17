@@ -17,7 +17,6 @@ export class TicketsComponent implements OnInit, OnDestroy {
   ticketStatusLogs: string[] = [];
   isSimulationRunning: boolean = false;
   configuration: any = {};
-  private logPollingSubscription: Subscription | null = null;
   private statusPollingSubscription: Subscription | null = null;
 
   constructor(
@@ -57,7 +56,6 @@ export class TicketsComponent implements OnInit, OnDestroy {
             this.configuration.customerCount +
             ' customers.'
         );
-        this.startPollingLogs();
         this.startPollingStatus();
       },
       (error) => {
@@ -71,7 +69,6 @@ export class TicketsComponent implements OnInit, OnDestroy {
       (response) => {
         this.addLog('Simulation stopped successfully.');
         this.isSimulationRunning = false;
-        this.stopPollingLogs();
         this.stopPollingStatus();
       },
       (error) => {
@@ -120,23 +117,6 @@ export class TicketsComponent implements OnInit, OnDestroy {
     );
   }
 
-  // Start polling logs at a fixed interval
-  startPollingLogs(): void {
-    if (!this.logPollingSubscription) {
-      this.logPollingSubscription = interval(2000).subscribe(() => {
-        this.loadLogs();
-      });
-    }
-  }
-
-  // Stop polling logs
-  stopPollingLogs(): void {
-    if (this.logPollingSubscription) {
-      this.logPollingSubscription.unsubscribe();
-      this.logPollingSubscription = null;
-    }
-  }
-
   startPollingStatus(): void {
     if (!this.statusPollingSubscription) {
       this.statusPollingSubscription = interval(2000).subscribe(() => {
@@ -153,7 +133,6 @@ export class TicketsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.stopPollingLogs();
     this.stopPollingStatus();
   }
 }
